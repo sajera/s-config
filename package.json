@@ -4,7 +4,7 @@
   "description": "configuration app and api from one way",
   "main": "index.js",
   "scripts": {
-    "test": "test.js"
+    "test": "test/test.js"
   },
   "files": [
     "index.js",
