@@ -1,6 +1,6 @@
 {
-  "name": "sajera",
-  "version": "1.0.0",
-  "author": "Sajera",
-  "license": "ISC"
+  "congfig": "JSON",
+  "DB_HOST": "localhost",
+  "DB_USER": "root",
+  "DB_PASS": "s1mpl3"
 }
