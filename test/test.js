@@ -35,6 +35,22 @@ wrongJsonConfig.config = 2;
 // but can be added
 wrongJsonConfig.nonExistentProperty = 'i am adding from execution code';
 
+var bigConfig = config('super-big-and-partially-load-config',{
+	'json': './test/test.json',
+	'env': './test/test.env',
+	some: 'static',
+	or: 'any data',
+	fun: function () {},
+	obj: {qwe: 'super'},
+	arr: [1,2,{1:2}],
+	bool: true,
+	spec: NaN,
+	num: 1,
+});
+bigConfig.num += 2;
+
+console.log('Object configs', bigConfig);
+
 if(
 	envConfig === require('./../index.js')('test-env')
 	&& jsonConfig === require('./../index.js')('test-json')
@@ -42,8 +58,11 @@ if(
 	&& wrongJsonConfig == envConfig
 	&& wrongJsonConfig.config == 'ENV'
 	&& wrongJsonConfig.nonExistentProperty === 'i am adding from execution code'
+	&& bigConfig.num == require('./../index.js')('super-big-and-partially-load-config').num
 ) {
 	console.log( '\nCompletely usability victory !!!' );
 } else {
 	console.log( '\nCompletely fail ...' );
 };
+
+

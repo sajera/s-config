@@ -2,15 +2,15 @@
 'use strict'
 
 var read = require('./lib/read.js');
-var constant = require('./lib/constant.js');
+var Config = require('./lib/Config.js');
 var MAP = {};
+
 
 function mapper ( id, path ) {
 	id = String( id );
 	// cash
-	if ( !MAP[ id ] && path && String( path ) == path ) {
-		MAP[ id ] = constant( {}, read( path ) );
-	}
+	if ( !MAP[ id ] && path ) MAP[ id ] = new Config( path );
+
 	return MAP[ id ] || {};
 }
 

@@ -31,6 +31,24 @@ if ( config === require('s-config')('config-id') ) {
 ```
 **Note:** There is no need to create global variables with the configuration or transfer of property from the initiation of the file throughout the application. Emulation of constant - prevents change of field values in the configuration at runtime.
 
+Multi-config:
+--------------
+```javascript
+
+// collect configuration of different pieces
+var config = require('s-config')('config-id', {
+	'json': './path/to/source/config.json',
+	'env': './path/to/source/config.env',
+	some: 'static data',
+	or: 'some dev properties',
+	fun: function () {},
+	bool: true,
+	spec: NaN,
+	num: 1
+});
+
+```
+**Note:** Find you way to create the present huge configs and methods of management.
 
 Read:
 ---------------
@@ -44,5 +62,6 @@ var config1 = configMap.read('./path/to/source/config.json');
 var config2 = configMap.read('./path/to/source/config.env');
 
 ```
-**Note:** File extension is required. Perhaps the development stage, you may need to view or compare different configs.
+**Note:** The file extension is required for any method of reading config.
+
 
