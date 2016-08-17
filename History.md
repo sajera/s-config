@@ -2,7 +2,9 @@
 
 
 
-
+1.2.3 / 2016-08-26 
+------------------
+* Added more detailed description of errors
 
 
 

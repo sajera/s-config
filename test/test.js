@@ -35,6 +35,9 @@ wrongJsonConfig.config = 2;
 // but can be added
 wrongJsonConfig.nonExistentProperty = 'i am adding from execution code';
 
+/*-------------------------------------------------
+		multi config
+---------------------------------------------------*/
 var bigConfig = config('super-big-and-partially-load-config',{
 	'json': './test/test.json',
 	'env': './test/test.env',
@@ -66,3 +69,4 @@ if(
 };
 
 
+// console.log( 'error test', config( 'cinfig-test-error', null ) );
