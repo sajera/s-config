@@ -2,12 +2,14 @@ s-config
 ===============
 ### Config from file in constant
 
+### installation
 ```shell
 npm i s-config --save
 ```
 
 Basic usage:
 ---------------
+
 ```javascript
 
 // reading synchronous operation
@@ -19,6 +21,7 @@ var config = require('s-config')('config-id', './path/to/source/config.json');
 
 Constant:
 ---------------
+
 ```javascript
 
 var config = require('s-config')('config-id', './path/to/source/config.json');
@@ -33,6 +36,7 @@ if ( config === require('s-config')('config-id') ) {
 
 Multi-config:
 --------------
+
 ```javascript
 
 // collect configuration of different pieces
@@ -52,6 +56,7 @@ var config = require('s-config')('config-id', {
 
 Read:
 ---------------
+
 ```javascript
 
 // only read config without adding to config map
