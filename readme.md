@@ -1,3 +1,7 @@
+
+[![NPM version][npm-image]][npm-url]
+[![License][license-image]][license-url]
+
 s-config
 ===============
 ### Config from file in constant
@@ -70,3 +74,7 @@ var config2 = configMap.read('./path/to/source/config.env');
 **Note:** The file extension is required for any method of reading config.
 
 
+[npm-image]: https://badge.fury.io/js/s-config.svg
+[npm-url]: https://npmjs.org/package/s-config
+[license-image]: http://img.shields.io/npm/l/is-arguments.svg
+[license-url]: LICENSE
