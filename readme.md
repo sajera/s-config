@@ -76,5 +76,5 @@ var config2 = configMap.read('./path/to/source/config.env');
 
 [npm-image]: https://badge.fury.io/js/s-config.svg
 [npm-url]: https://npmjs.org/package/s-config
-[license-image]: http://img.shields.io/npm/l/is-arguments.svg
+[license-image]: http://img.shields.io/npm/l/s-is.svg
 [license-url]: LICENSE
