@@ -1,10 +1,11 @@
 {
   "name": "s-config",
-  "version": "1.2.3",
+  "version": "1.4.0",
   "description": "Config from file in constant",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "gulp concat&gulp minify",
     "debug": "devtool test/test.js"
   },
   "homepage": "https://github.com/sajera/s-config#readme",
