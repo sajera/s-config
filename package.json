@@ -4,7 +4,8 @@
   "description": "Config from file in constant",
   "main": "index.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "devtool test/test.js"
   },
   "homepage": "https://github.com/sajera/s-config#readme",
   "repository": {
@@ -17,5 +18,12 @@
   "keywords": [ "s-config", "config", "config constant"],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-order": "^1.1.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-wrap": "^0.13.0"
+  }
 }
