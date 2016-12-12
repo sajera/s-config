@@ -10,7 +10,9 @@ var license = '/**\n * s-config\
 function src ( name ) {
     return gulp.src(['lib/*.js'])
         .pipe(require('gulp-order')([ // queue of files
-            'config.js',
+            'mapper.js',
+            'read.js',
+            'merge.js',
             'define.js'
         ]))
         .pipe( require('gulp-concat')(name||'declare.js') )
