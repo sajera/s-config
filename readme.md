@@ -41,11 +41,11 @@ Merge-config :
 ```javascript
 
 var config = require('s-config')('config-app-id',
-	'./config.env',
-	'./config.json',
-	{some: 'hardcode'},
-	'./environment/db.json',
-	{another: 'hardcode'}
+    './config.env',                              // minimum priority 
+    './config.json',
+    {some: 'hardcode'},
+    './environment/db.json',
+    {another: 'hardcode'}                       // maximum priority 
 );
 
 ```
