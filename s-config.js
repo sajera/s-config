@@ -1,5 +1,5 @@
 /*
- * s-config version 1.4.0 at 2017-08-15
+ * s-config version 1.5.0 at 2017-08-15
  * @license MIT License Copyright (c) 2016 Serhii Perekhrest <allsajera@gmail.com> ( Sajera )    
  */
 /** @ignore */
@@ -8,13 +8,13 @@ var path = require('path');
 var fs = require('fs');
 /**
  * @description
-    
+
     Make a map of configs. s-config can read and store configurations constants.
     To read a file or object and set it in a constant, pass the name (id) of the constant to the 'picker'( require('s-config') )
     and the arguments to the list of objects or paths to the files.
     After thath, you can get the constant in any part of app from 'picker'( require('s-config') ) by constant name(id)
 
- * @example 
+ * @example
     // set constant from file
     var config = require('s-config')('config-id', './path/to/source/config.json');
 
@@ -24,7 +24,7 @@ var fs = require('fs');
  * @param { String } id - id of config for store or getting
  * @param { String|Object } data - data or config source path
  * @param { String|Object } data - data or config source path etc.
- * 
+ *
  * @returns { Object }
  * @function picker
  * @public
@@ -36,7 +36,7 @@ function mapper ( id ) {
     if ( !this[id] )
         return extendConfig.apply(null, Array.prototype.slice.call(arguments) );
 
-    return Object.assign({}, this[id]);
+    return this[id] ? Object.assign({}, this[id]) : null;
 }
 var MAP = {};
 var mapper = mapper.bind(MAP);
@@ -48,7 +48,7 @@ var mapper = mapper.bind(MAP);
     In this connection, it blocks the ability to rewrite its value after installation.
     If you need to partially change or expand the constant, use the extension method
 
- * @example 
+ * @example
     // set constant from file
     var config = require('s-config')('config-id', './path/to/source/config.json');
     // extend or overide existing constatnt
@@ -67,8 +67,9 @@ function extendConfig ( id ) {
 
     MAP[id] = mergeConfig.apply(null, Array.prototype.slice.call(arguments, 1) );
 
-    return Object.assign({}, MAP[id]);
+    return MAP[id] ? Object.assign({}, MAP[id]) : null;
 }
+
 /*-------------------------------------------------
     PARSERS for files
     parser['.env']('DB_PASS=s1mpl3')
@@ -80,7 +81,7 @@ var parser = {
     // parse env file
     '.env': function ( sourse ) {
         var res = {}, field, value, key = 0, lines = String( sourse ).split('\n');
-        for ( ; key < lines.length; key ++ ) {
+        for ( ; (key < lines.length)&&lines[ key ]; key ++ ) {
             field = lines[ key ].match(/^\s*([\w\.\-\$\@\#\*\!\~]+)\s*=+/)[1];
             value = lines[ key ].match(/=\s*(.*)\s*$/)[1].trim();
             if ( field ) res[ field ] = value.replace(/(^['"]|['"]$)/g, '').replace(/\s+/,' ');
@@ -91,13 +92,13 @@ var parser = {
 
 /**
  * @description
-    
+
     s-config can read .json and .env files.
     If you do not need to use constants, you can read the files without saving them inside of the s-config.
-    Important - this method does not use ability to merge configuration. 
+    Important - this method does not use ability to merge configuration.
 
- * @example 
-    // 
+ * @example
+    //
     require('s-config').read('./test.env');
     require('s-config').read('./test.json');
 
@@ -114,12 +115,14 @@ var parser = {
 mapper['read'] = readFileSync;
 function readFileSync ( src ) {
 
-    var root = path.dirname(process.mainModule.filename);
     var parse = parser[ path.extname(src) ];
-
     if ( !parse ) throw new Error('Source path must be specified correctly, with extension(.json .env)');
 
-    return parse( fs.readFileSync( path.join(root, src), 'utf8', 'r') );
+    try { // try to get file based on current process
+        return parse(fs.readFileSync(path.join(path.dirname(process.mainModule.filename), src), 'utf8', 'r'));
+    } catch ( err ) { // assume you know what do you do
+        return parse(fs.readFileSync(src, 'utf8', 'r'));
+    }
 }
 
 
@@ -128,7 +131,7 @@ function readFileSync ( src ) {
  * method to merge a sources of config
  * it can take path source or object or names of other configs
  *
- * @param { Object|String } - sources of configs  
+ * @param { Object|String } - sources of configs
  * @returns { Object }
  * @private
  */
@@ -143,12 +146,13 @@ function mergeConfig () {
             } else {
                 res.push( readFileSync(item) );
             }
-        } else if ( Object.prototype.toString.call(item) == '[object Object]' ) {
+        } else if ( item&&Object.prototype.toString.call(item) == '[object Object]' ) {
             res.push( item );
         } else throw new Error('Unexpected variables of config: ', item);
     }
-    return Object.assign.apply(Object, res);
+    return res.length ? Object.assign.apply(Object, res) : null;
 }
+
 /**
  * @description
     defination on Node.js

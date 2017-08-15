@@ -73,7 +73,7 @@ Important - this method does not use ability to merge configuration.
 **Examples**
 
 ```javascript
-// 
+//
 require('s-config').read('./test.env');
 require('s-config').read('./test.json');
 
