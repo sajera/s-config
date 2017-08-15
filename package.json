@@ -1,12 +1,12 @@
 {
   "name": "s-config",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Config from file in constant",
   "main": "s-config.min.js",
   "scripts": {
     "rebuild": "gulp build&&npm run test&&gulp doc&&gulp doc-md",
     "test": "gulp lint&&gulp test",
-    "debug": "devtool test/test"
+    "debug": "devtool test/debug"
   },
   "homepage": "https://github.com/sajera/s-config#readme",
   "repository": {
