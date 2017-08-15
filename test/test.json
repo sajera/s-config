@@ -1,5 +1,6 @@
 {
-  "congfig": "JSON",
+  "hardcode": false,
+  "config_j": "JSON",
   "DB_HOST": "localhost",
   "DB_USER": "root",
   "DB_PASS": "s1mpl3"
