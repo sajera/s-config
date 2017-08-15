@@ -49,7 +49,7 @@ describe('TESTS', function () {
         });
 
         var t3 = __dirname+'/test.env';
-        var t3Equal = { DB_HOST:"localhost", DB_PASS:"s1mpl3", DB_USER:"root", config_e: "ENV", hardcode: "false"}
+        var t3Equal = { DB_HOST:"localhost", DB_PASS:"s1mpl3", DB_USER:"root", config_e: "ENV", hardcode: "false"};
         it('constant from file path '+t3, function () {
             assert.isObject( picker('test-id-3', t3), 'existing constants always the object');
             assert.notStrictEqual(t3Equal, picker('test-id-2', t3 ), 'on call it not strict equal to origin');
@@ -62,6 +62,24 @@ describe('TESTS', function () {
             var mc = picker('test-id-4', t1, t2, t3);
             assert.isObject(mc, 'existing constants always the object');
             assert.notStrictEqual(t3Equal, picker('test-id-2', {"hardcode":"false","congfig":"JSON","DB_HOST":"localhost","DB_USER":"root","DB_PASS":"s1mpl3","config":"ENV"}), 'on call it not strict equal to origin');
+        });
+
+    });
+
+    describe('picker.read behavior', function () {
+
+        var env = __dirname+'/test.env';
+        it('read ".env" file '+env, function () {
+            var res = picker.read(env);
+            assert.isObject(res, 'result of reading existing ".env" files always the object');
+            assert.notStrictEqual(res, { DB_HOST:"localhost", DB_PASS:"s1mpl3", DB_USER:"root", config_e: "ENV", hardcode: "false"}, 'it not strict equal to origin')
+        });
+
+        var json = __dirname+'/test.json';
+        it('read ".json" file '+json, function () {
+            var res = picker.read(json);
+            assert.isObject( res, 'result of reading existing ".json" files always the object');
+            assert.notStrictEqual(res, { hardcode: false, config_j: "JSON", DB_HOST: "localhost", DB_USER: "root", DB_PASS: "s1mpl3" }, 'it not strict equal to origin');
         });
 
     });

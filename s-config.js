@@ -115,12 +115,14 @@ var parser = {
 mapper['read'] = readFileSync;
 function readFileSync ( src ) {
 
-    // var root = path.dirname(process.mainModule.filename);
     var parse = parser[ path.extname(src) ];
-
     if ( !parse ) throw new Error('Source path must be specified correctly, with extension(.json .env)');
 
-    return parse( fs.readFileSync( src/*path.join(root, src)*/, 'utf8', 'r') );
+    try { // try to get file based on current process
+        return parse(fs.readFileSync(path.join(path.dirname(process.mainModule.filename), src), 'utf8', 'r'));
+    } catch ( err ) { // assume you know what do you do
+        return parse(fs.readFileSync(src, 'utf8', 'r'));
+    }
 }
 
 
