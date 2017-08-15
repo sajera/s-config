@@ -16,15 +16,20 @@
   "bugs": {
     "url": "https://github.com/sajera/s-config/issues"
   },
-  "keywords": [ "s-config", "config", "config constant"],
+  "keywords": [
+    "s-config",
+    "config",
+    "config constant"
+  ],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
+    "devtool": "^2.3.1",
+    "documentation": "^5.2.1",
     "eslint": "^3.12.2",
     "gulp": "^3.9.1",
-    "devtool": "^2.3.1",
     "gulp-concat": "^2.6.1",
     "gulp-documentation": "^3.1.0",
     "gulp-eslint": "^3.0.1",
