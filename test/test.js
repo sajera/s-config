@@ -61,58 +61,9 @@ describe('TESTS', function () {
         it('constant from multi configs', function () {
             var mc = picker('test-id-4', t1, t2, t3);
             assert.isObject(mc, 'existing constants always the object');
-
-            console.log('test-id-4', JSON.stringify(mc)  );
-
+            assert.notStrictEqual(t3Equal, picker('test-id-2', {"hardcode":"false","congfig":"JSON","DB_HOST":"localhost","DB_USER":"root","DB_PASS":"s1mpl3","config":"ENV"}), 'on call it not strict equal to origin');
         });
 
     });
-
-    // describe('picker.extend behavior', function () {
-
-    //     it('simple data types', function () {
-    //         assert.isString(uid.guid(), 'must be a string');
-    //         assert.equal(uid.guid().split('-').length, '5', 'default base Consists of 5 parts');
-    //     });
-
-    //     it('uid.guid log time of creation 10 000 guids', function () {
-    //         var key = 10*1000;
-    //         console.time('uid.guid case default 10 000');
-    //         while (key--) uid.guid();
-    //         console.timeEnd('uid.guid case default 10 000');
-    //     });
-
-    //     it('uid.guid matches 10 000 uids based on one time', function () {
-    //         // iven fast match its to long for "chai"
-    //         this.timeout(10*1000);
-    //         var key = 10*1000;
-    //         var time = new Date();
-    //         var storeGuid = [[]];
-    //         while ( key-- ) {
-    //             assert.isNotTrue(
-    //                 customMatching(uid.guid(null, null, time), storeGuid),
-    //                 'match found on '+key+' item !'
-    //             );
-    //         }
-    //     });
-
-    // });
-
-    // describe('picker.read behavior', function () {
-
-    //     it('default simple data types', function () {
-    //         assert.isString(uid.time(), 'must be a string');
-    //         assert.equal(uid.time().length, '16', 'lenght of time must be 16');
-    //     });
-
-    //     it('based on July 21, 1983 01:15:00', function () {
-    //         assert.equal(
-    //             uid.time(new Date('July 21, 1983 01:15:00'),'_','_','_'),
-    //             '1983_06_21_01_15',
-    //             'parse error'
-    //         );
-    //     });
-
-    // });
 
 });
