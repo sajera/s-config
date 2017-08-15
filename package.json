@@ -2,11 +2,11 @@
   "name": "s-config",
   "version": "1.4.0",
   "description": "Config from file in constant",
-  "main": "config.min.js",
+  "main": "s-config.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "rebuild": "gulp concat&gulp minify",
-    "debug": "devtool test/test.js"
+    "rebuild": "gulp build&&npm run test&&gulp doc&&gulp doc-md",
+    "test": "gulp lint&&gulp test",
+    "debug": "devtool test/test"
   },
   "homepage": "https://github.com/sajera/s-config#readme",
   "repository": {
@@ -16,15 +16,29 @@
   "bugs": {
     "url": "https://github.com/sajera/s-config/issues"
   },
-  "keywords": [ "s-config", "config", "config constant"],
+  "keywords": [
+    "s-config",
+    "config",
+    "config constant"
+  ],
   "author": "Sajera: Serhii P <allsajera@gmail.com>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "chai": "^3.5.0",
+    "devtool": "^2.3.1",
+    "documentation": "^5.2.1",
+    "eslint": "^3.12.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-documentation": "^3.1.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^3.0.1",
     "gulp-order": "^1.1.1",
     "gulp-uglify": "^2.0.0",
-    "gulp-wrap": "^0.13.0"
+    "gulp-wrap": "^0.13.0",
+    "mocha": "^3.2.0",
+    "q": "^1.4.1",
+    "s-is": "^1.2.0"
   }
 }

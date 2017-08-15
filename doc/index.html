@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>s-config 1.4.0 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='assets/split.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>s-config</h3>
+          <div class='mb1'><code>1.4.0</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#exports'
+                  class="">
+                  exports
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#picker'
+                  class="">
+                  picker
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#extend'
+                  class="">
+                  extend
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#read'
+                  class="">
+                  read
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='exports'>
+      exports
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>defination on Node.js</p>
+<p>npm i --save s-config</p>
+
+
+  <div class='pre p1 fill-light mt0'>exports</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">var</span> picker = <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='picker'>
+      picker
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Make a map of configs. s-config can read and store configurations constants.
+To read a file or object and set it in a constant, pass the name (id) of the constant to the 'picker'( require('s-config') )
+and the arguments to the list of objects or paths to the files.
+After thath, you can get the constant in any part of app from 'picker'( require('s-config') ) by constant name(id)</p>
+
+
+  <div class='pre p1 fill-light mt0'>picker(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), data: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    id of config for store or getting
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    data or config source path
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    data or config source path etc.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// set constant from file</span>
+<span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>)(<span class="hljs-string">'config-id'</span>, <span class="hljs-string">'./path/to/source/config.json'</span>);
+
+<span class="hljs-comment">// set constant after reading and merge data of files and objects</span>
+<span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>)(<span class="hljs-string">'config-id-2'</span>, <span class="hljs-string">'./test.json'</span>, {<span class="hljs-attr">some</span>: <span class="hljs-string">'test2'</span>}, <span class="hljs-string">'./test.env'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='extend'>
+      extend
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>S-config assumes that the variable is a constant.
+In this connection, it blocks the ability to rewrite its value after installation.
+If you need to partially change or expand the constant, use the extension method</p>
+
+
+  <div class='pre p1 fill-light mt0'>extend(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, data: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>), data: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    id of config for store or getting
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    data or config source path
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>))</code>
+	    data or config source path etc.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// set constant from file</span>
+<span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>)(<span class="hljs-string">'config-id'</span>, <span class="hljs-string">'./path/to/source/config.json'</span>);
+<span class="hljs-comment">// extend or overide existing constatnt</span>
+<span class="hljs-keyword">var</span> extendet = <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>).extend(<span class="hljs-string">'config-id'</span>, <span class="hljs-string">'./test.json'</span>, {<span class="hljs-attr">some</span>: <span class="hljs-string">'test2'</span>}, <span class="hljs-string">'./test.env'</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='read'>
+      read
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>s-config can read .json and .env files.
+If you do not need to use constants, you can read the files without saving them inside of the s-config.
+Important - this method does not use ability to merge configuration.</p>
+
+
+  <div class='pre p1 fill-light mt0'>read</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>path</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    suorce path (extension is required)
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        js object from file
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// </span>
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>).read(<span class="hljs-string">'./test.env'</span>);
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>).read(<span class="hljs-string">'./test.json'</span>);
+
+<span class="hljs-comment">// Emulation of the "dotenv" approach</span>
+<span class="hljs-comment">// read of environment variable from '.env' and write it in process</span>
+<span class="hljs-built_in">Object</span>.assign(process.env, <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>).read(<span class="hljs-string">'.env'</span>) );
+<span class="hljs-comment">// expand of environment variable from environment file</span>
+<span class="hljs-built_in">Object</span>.assign(process.env, <span class="hljs-built_in">require</span>(<span class="hljs-string">'s-config'</span>).read(<span class="hljs-string">'./config/env/'</span>+process.env.NODE_ENV+<span class="hljs-string">'.env'</span>) );</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>
