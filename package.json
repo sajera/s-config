@@ -6,7 +6,7 @@
   "scripts": {
     "rebuild": "gulp build&&npm run test&&gulp doc&&gulp doc-md",
     "test": "gulp lint&&gulp test",
-    "debug": "devtool s-config"
+    "debug": "devtool test/test"
   },
   "homepage": "https://github.com/sajera/s-config#readme",
   "repository": {

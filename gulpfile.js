@@ -89,6 +89,8 @@ gulp.task('doc-json', function () {
 });
 
 gulp.task('build', ['concat', 'minify'], function () {
+    gulp.start('doc');
+    gulp.start('doc-md');
     // gulp.start('lint');
     // gulp.start('test');
 });
