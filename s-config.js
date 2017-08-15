@@ -1,7 +1,8 @@
-/**
- * s-config    
- * MIT License Copyright (c) 2016 Serhii Perekhrest <allsajera@gmail.com> ( Sajera )    
+/*
+ * s-config version 1.4.0 at 2017-08-15
+ * @license MIT License Copyright (c) 2016 Serhii Perekhrest <allsajera@gmail.com> ( Sajera )    
  */
+/** @ignore */
 (function () {'use strict';
 var path = require('path');
 var fs = require('fs');
@@ -38,12 +39,13 @@ function extendConfig ( id ) {
 }
 /*-------------------------------------------------
     PARSERS for files
+    parser['.env']('DB_PASS=s1mpl3')
 ---------------------------------------------------*/
-var parsers = {
+var parser = {
     // simple json
-    json: JSON.parse.bind( JSON ),
+    '.json': JSON.parse.bind( JSON ),
     // parse env file
-    env: function ( sourse ) {
+    '.env': function ( sourse ) {
         var res = {}, field, value, key = 0, lines = String( sourse ).split('\n');
         for ( ; key < lines.length; key ++ ) {
             field = lines[ key ].match(/^\s*([\w\.\-\$\@\#\*\!\~]+)\s*=+/)[1];
@@ -64,11 +66,11 @@ mapper['read'] = readFileSync;
 function readFileSync ( src ) {
 
     var root = path.dirname(process.mainModule.filename);
-    var parser = parsers[ path.extname(src).replace('.', '') ];
+    var parse = parser[ path.extname(src) ];
 
-    if ( !parser ) throw new Error('Source path must be specified correctly, with extension(.json .env)');
+    if ( !parse ) throw new Error('Source path must be specified correctly, with extension(.json .env)');
 
-    return parser( fs.readFileSync( path.join(root, src), 'utf8', 'r') );
+    return parse( fs.readFileSync( path.join(root, src), 'utf8', 'r') );
 }
 
 

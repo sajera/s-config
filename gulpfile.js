@@ -22,13 +22,13 @@ function src ( name ) {
 }
 
 gulp.task('concat', function () {
-    return src('config.js')
+    return src('s-config.js')
         .pipe( wrapper(license) )
         .pipe( gulp.dest('./') );
 });
 
 gulp.task('minify', function () {
-    return src('config.min.js')
+    return src('s-config.min.js')
         .pipe( require('gulp-uglify')() )
         .pipe( wrapper(license) )
         .pipe( gulp.dest('./') );
@@ -36,6 +36,59 @@ gulp.task('minify', function () {
 
 gulp.task('watch', function () {
     
-    gulp.watch('lib/*.js', ['concat']);
+    gulp.watch('lib/*.js', ['build']);
 
+});
+
+gulp.task('lint', function () {
+    return gulp.src(['s-config.js','s-config.min.js'])
+        .pipe( require('gulp-eslint')() )
+        .pipe( require('gulp-eslint').format() )
+        .pipe( require('gulp-eslint').failAfterError() );
+});
+
+gulp.task('test', function ( done ) {
+    return gulp.src('test/test.js', {read: false})
+        .pipe( require('gulp-mocha')({reporter: 'nyan'}) );
+});
+
+gulp.task('doc', function () {
+    var doc = require('gulp-documentation');
+    return gulp.src('s-config.js')
+        .pipe( doc('html', {}, {
+            name: pkg.name.toUpperCase(),
+            version: pkg.version,
+            license: pkg.license,
+            date: date
+        }) )
+        .pipe( gulp.dest('doc') );
+});
+
+gulp.task('doc-md', function () {
+    var doc = require('gulp-documentation');
+    return gulp.src('s-config.js')
+        .pipe( doc('md', {}, {
+            name: pkg.name.toUpperCase(),
+            version: pkg.version,
+            license: pkg.license,
+            date: date,
+        }) )
+        .pipe( gulp.dest('doc') );
+});
+
+gulp.task('doc-json', function () {
+    var doc = require('gulp-documentation');
+    return gulp.src('s-config.js')
+        .pipe( doc('json', {}, {
+            name: pkg.name.toUpperCase(),
+            version: pkg.version,
+            license: pkg.license,
+            date: date
+        }) )
+        .pipe( gulp.dest('doc') );
+});
+
+gulp.task('build', ['concat', 'minify'], function () {
+    // gulp.start('lint');
+    // gulp.start('test');
 });

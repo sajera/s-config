@@ -2,11 +2,11 @@
   "name": "s-config",
   "version": "1.4.0",
   "description": "Config from file in constant",
-  "main": "config.min.js",
+  "main": "s-config.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "rebuild": "gulp concat&gulp minify",
-    "debug": "devtool test/test.js"
+    "rebuild": "gulp build&&npm run test&&gulp doc&&gulp doc-md",
+    "test": "gulp lint&&gulp test",
+    "debug": "devtool s-config"
   },
   "homepage": "https://github.com/sajera/s-config#readme",
   "repository": {
